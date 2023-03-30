@@ -1,6 +1,7 @@
 // Global var
-var shogiBoard 
-
+var shogiBoard
+var testText
+let x = 0
 // this is the function for making the board
 function generateBoard(){
     shogiBoard = document.querySelector('#boardGame')

@@ -2,3 +2,4 @@ let lion = {
     image
     
 }
+
