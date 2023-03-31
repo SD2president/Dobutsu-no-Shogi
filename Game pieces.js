@@ -12,4 +12,3 @@ function newImage(url, name){
 }
 
 newImage('./assets/Chick.png', 'chick');
-sadjnwqj
