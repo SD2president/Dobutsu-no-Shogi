@@ -8,7 +8,8 @@ function newImage(url, name){
     let image = document.createElement('img');
     image.src = url;
     image.id = name;
-    image.appendChild(shogiBoard)
+    image.appendChild(shogiBoard);
 }
 
-newImage('./assets/Chick.png', 'chick')
+newImage('./assets/Chick.png', 'chick');
+sadjnwqj
