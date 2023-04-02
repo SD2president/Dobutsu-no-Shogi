@@ -2,7 +2,6 @@
     image
     
 }*/
-import { shogiBoard } from "./main";
 
 function newImage(url, name){
     let image = document.createElement('img');

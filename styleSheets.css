@@ -12,18 +12,21 @@ body{
     display: block;
 }
 
-/**{
-    outline: 1px solid red;
-} */
 
 .shogi-Square{
     flex: 1 1 33%;
     aspect-ratio: 1;
-    border: 1px solid black;
+    outline: 1px solid red;
 }
 
 #boardGame{
     display: flex;
     flex-wrap: wrap;
     width: 50%;
+}
+
+ img{
+display: flex;
+    width: 70%;
+    align-self:center;
 }
