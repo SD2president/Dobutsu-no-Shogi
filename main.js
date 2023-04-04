@@ -2,6 +2,8 @@
 var shogiBoard
 var testText
 let shogiSquare
+let currentSelectedPiece;
+let currentPlayer;
 let assets = [
     {
         src:'./assets/Chick.png',
@@ -9,7 +11,8 @@ let assets = [
         startPosition: {
             P1: "b2",
             P2: "b3",
-        }
+        },
+
     },
     {
         src:'./assets/Elephant.png',
@@ -43,6 +46,7 @@ function newImage(container,url, name,player){
     let image = document.createElement('img');
     image.src = url;
     image.id = name;
+    image.setAttribute('data-player', player)
     if (player === "P1"){
         image.style.transform = "rotate(180deg)"
     }
@@ -60,11 +64,11 @@ function generateBoard(){
             shogiSquare = document.createElement('div');
             shogiSquare.className = 'shogi-Square';
             shogiSquare.id = currentAddress;
-            shogiSquare.style.backgroundColor = '#121';
+            shogiSquare.style.backgroundColor = '#228013';
+            shogiSquare.addEventListener('click', onSquareCLick)
             console.log(shogiSquare)
             console.log(shogiBoard)
             shogiBoard.appendChild(shogiSquare);
-            debugger;
             let currentPlayer = y <= 1 ? "P1":"P2";
             let currentImg = assets.find(asset => {
                 let {startPosition} = asset
@@ -77,8 +81,50 @@ function generateBoard(){
         }
         
     }
+
+    function onSquareCLick(event) {
+        const address = event.target.id;
+
+        
+        // if the id is a animal -- then show selected parent
+        if (assets.map(a => a.name).indexOf(address) !== -1) {
+            if (currentSelectedPiece) {
+                let whichPlayer = event.target.getAttribute('data-player');
+                if (currentPlayer == whichPlayer) {
+                    
+                } else {
+                    // do capture
+                    
+                }
+
+            // is you already have a piece selected and you are clicking on a
+            // opponent piece - then you capture 
+            // function for capture 
+            } else {
+            //or
+                currentSelectedPiece = event.target;
+            //this is an animalclick
+                const square = event.target.parentElement
+                square.style.backgroundColor = 'yellow'
+
+            // show highlight of square 
+            // set the currently selected piece 
+            } 
+
+
+
+
+        } else {
+            const square = document.getElementById(address)
+            // this is the place I can go
+            if (currentSelectedPiece) {
+                square.appendChild(currentSelectedPiece);
+                currentSelectedPiece = null
+            }
+        }
+        console.log(address)
+    }
    
 }
 document.addEventListener('DOMContentLoaded', generateBoard);
- 
 
